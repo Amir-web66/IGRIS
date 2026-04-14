@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>IGRIS · Forge Yourself</title>
+<title>IGRIS · BY LBRINSS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
@@ -546,6 +546,11 @@ let ST={
 let timer={running:false,accum:0,start:null,iv:null,ss:null};
 let mood=3;
 let CH={};
+function getSkillDefs(){
+  return [...SKILL_DEFS, ...(ST.skills || [])];
+}
+
+const SKILL_COLORS = ['#8b5cf6', '#3b82f6', '#22c55e', '#f59e0b', '#14b8a6', '#ef4444', '#f97316'];
 
 function td(){return new Date().toISOString().slice(0,10)}
 function te(){if(!ST.allDays[td()])ST.allDays[td()]={done:[],sessions:[],notes:"",study:0,screen:0,sleep:"7-8",water:"2-3L",mood:3,submitted:false};return ST.allDays[td()]}
@@ -553,10 +558,32 @@ function dn(){return te().done}
 function sess(){return te().sessions}
 
 async function loadData(){
-  try{const r=await fetch('/api/data');const d=await r.json();if(d&&d.habits)Object.assign(ST,d);}catch(e){}
+  try{
+    const r = await fetch('/api/data');
+    const d = await r.json();
+    console.log('Loaded data:', d);
+    
+    if(d && typeof d === 'object' && Object.keys(d).length > 0){
+      Object.assign(ST, d);
+      console.log('ST after assign:', ST);
+    } else {
+      console.log('No saved data found, using defaults');
+    }
+  } catch(e){
+    console.error('Load failed:', e);
+  }
 }
 async function saveData(){
-  try{await fetch('/api/data',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(ST)});}catch(e){}
+  try{
+    await fetch('/api/data', {
+      method: 'POST', 
+      headers: {'Content-Type': 'application/json'}, 
+      body: JSON.stringify(ST)
+    });
+    console.log('Data saved:', ST);  // Debug log
+  } catch(e){
+    console.error('Save failed:', e);
+  }
 }
 
 function renderAll(){
@@ -607,6 +634,7 @@ function renderLog(){
   document.getElementById('log-sess').textContent=s.length;
   document.getElementById('log-avg').textContent=fmtSec(Math.round(tot/s.length));
 }
+
 function renderSkills(){
   const d=dn();const defs=getSkillDefs();
   const el=document.getElementById('skills-grid');
@@ -842,21 +870,25 @@ function obNext(step){
   if(step===3){initOnboarding();}
 }
 
-function finishOnboarding(){
-  ST.onboarded=true;
-  saveData();
+async function finishOnboarding(){
+  ST.onboarded = true;
+  const nameInput = document.getElementById('ob-name').value.trim();
+  if(nameInput) ST.username = nameInput;
+  
+  await saveData();  // Wait for save to complete
   document.getElementById('onboard-modal').classList.add('hidden');
   renderAll();
-  notify('welcome, '+ST.username+' — arise.','g');
+  notify('welcome, ' + ST.username + ' — arise.', 'g');
 }
 
 function checkOnboarding(){
-  if(!ST.onboarded){
+  // If user has habits, they've completed setup
+  if(!ST.habits || ST.habits.length === 0){
     document.getElementById('onboard-modal').classList.remove('hidden');
     initOnboarding();
   } else {
     document.getElementById('onboard-modal').classList.add('hidden');
-    if(ST.username) document.getElementById('username-display').textContent=ST.username;
+    if(ST.username) document.getElementById('username-display').textContent = ST.username;
   }
 }
 
