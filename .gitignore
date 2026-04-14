@@ -1,0 +1,28 @@
+# Personal data — never committed
+data/brain_data.json
+data/earned_skills.json
+data/insights.json
+data/
+
+# Personal avatar
+public/avatar.jpg
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node
+node_modules/
+npm-debug.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Editor
+.vscode/
+.idea/
+*.swp
