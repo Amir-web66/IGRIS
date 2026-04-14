@@ -45,7 +45,7 @@ No frameworks. No database. No internet required after first load (fonts are cac
 ### Install & Run
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/igris.git
+git clone https://github.comAmir-web66/igris.git
 cd igris
 ```
 
