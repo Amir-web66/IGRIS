@@ -6,6 +6,8 @@ updated to be with ML behavioral analysis.
 No cloud. No account. No tracking.
 Just you and your data.
 
+--updated 14/4/2026
+
 
 ---
 
@@ -119,7 +121,9 @@ No external libraries needed — pure Python standard library.
 
 IGRIS will open silently in the background every time you log in.
 
+## Contribution
 
+Feedback, suggestions, and improvements are welcome and appreciated. Every idea helps IGRIS evolve.
 ---
 
 Born in December 2025, IGRIS evolved from a simple paper idea into a working local system, which we hope will be useful.
