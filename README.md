@@ -123,7 +123,6 @@ IGRIS will open silently in the background every time you log in.
 
 ## Contribution
 
-Feedback, suggestions, and improvements are welcome and appreciated. Every idea helps IGRIS evolve.
----
+Any feedback, ideas, or suggestions are welcome — they help improve and evolve IGRIS.---
 
 Born in December 2025, IGRIS evolved from a simple paper idea into a working local system, which we hope will be useful.
