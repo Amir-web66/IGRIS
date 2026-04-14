@@ -1,5 +1,5 @@
 # IGRIS 
-
+ If you like this project, consider giving it a star — it helps a lot!
 
 **IGRIS** is a local personal dashboard for tracking daily habits, study sessions, and self-discipline 
 updated to be with ML behavioral analysis.
