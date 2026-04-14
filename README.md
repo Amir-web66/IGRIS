@@ -1,6 +1,8 @@
+# IGRIS
+
 ![GitHub Repo stars](https://img.shields.io/github/stars/Amir-web66/IGRIS?style=social)
-# IGRIS 
- If you like this project, consider giving it a star — it helps a lot!
+
+> If you like this project, consider giving it a star — it helps a lot!
 
 **IGRIS** is a local personal dashboard for tracking daily habits, study sessions, and self-discipline 
 updated to be with ML behavioral analysis.
