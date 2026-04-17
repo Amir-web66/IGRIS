@@ -67,7 +67,10 @@ cd igris
 ```
 
 Then **double-click `START.bat`** (Windows) — or run:
-
+Or ** (Linux)
+```
+chmod +x start.sh
+```
 ```bash
 node server.js
 ```
