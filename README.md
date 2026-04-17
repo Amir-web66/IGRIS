@@ -67,14 +67,14 @@ cd igris
 ```
 
 Then **double-click `START.bat`** (Windows) — or run:
+
+```bash
+node server.js
+```
 Or ** (Linux)
 ```
 chmod +x start.sh
 ```
-```bash
-node server.js
-```
-
 Dashboard opens at `http://localhost:3737`
 
 On first launch, IGRIS will walk you through a setup to define your name, habits, and skills.
