@@ -24,7 +24,7 @@ Just you and your data.
 - **Full history** — every day stored locally in JSON
 
 ---
-### Dashboard — Today's Forge
+### Dashboard —
 ![IGRIS Dashboard](assets/dashboard.png)
 *Main dashboard showing habit tracking, study timer, and daily score*
 
