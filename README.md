@@ -145,4 +145,4 @@ Any feedback, ideas, or suggestions are welcome — they help improve and evolve
 
 ---
 
-Born in December 2025, IGRIS evolved from a simple paper idea into a working local system, which we hope will be useful.
+Idea Born in December 2025, IGRIS evolved from a simple paper idea into a working local system, which we hope will be useful.
